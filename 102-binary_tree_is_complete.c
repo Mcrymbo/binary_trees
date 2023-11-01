@@ -13,7 +13,7 @@ size_t tree_size(const binary_tree_t *tree)
 }
 
 /**
- * tree_is_complete_recussive - check if the
+ * tree_is_complete - check if the
  * tree is complete recussively
  * @tree: pointer to the root node of the tree
  * @index: index of current node
