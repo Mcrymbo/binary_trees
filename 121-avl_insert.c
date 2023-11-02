@@ -58,7 +58,7 @@ avl_t *check_avl(avl_t **tree, int value)
 			return (node);
 		}
 	}
-	if ( value > (*tree)->n)
+	if (value > (*tree)->n)
 	{
 		if (!(*tree)->right)
 		{
@@ -77,7 +77,7 @@ avl_t *check_avl(avl_t **tree, int value)
 }
 
 /**
- * avl+insert - inserts a value into AVL tree
+ * avl_insert - inserts a value into AVL tree
  * @tree: pointer to root node of the AVL tree
  * @value: value to insert into the tree
  * Return: pointer to the created node

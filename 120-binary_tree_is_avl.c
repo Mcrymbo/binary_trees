@@ -43,12 +43,12 @@ size_t binary_tree_height(const binary_tree_t *tree)
  */
 int bst_recussive(const binary_tree_t *tree, int min, int max)
 {
-        if (!tree)
-                return (1);
-        if (tree->n <= min || tree->n >= max)
-                return (0);
-        return (bst_recussive(tree->left, min, tree->n) &&
-                        bst_recussive(tree->right, tree->n, max));
+	if (!tree)
+		return (1);
+	if (tree->n <= min || tree->n >= max)
+		return (0);
+	return (bst_recussive(tree->left, min, tree->n) &&
+			bst_recussive(tree->right, tree->n, max));
 }
 
 /**
@@ -58,9 +58,9 @@ int bst_recussive(const binary_tree_t *tree, int min, int max)
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-        if (!tree)
-                return (0);
-        return (bst_recussive(tree, INT_MIN, INT_MAX));
+	if (!tree)
+		return (0);
+	return (bst_recussive(tree, INT_MIN, INT_MAX));
 }
 
 /**

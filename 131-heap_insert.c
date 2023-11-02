@@ -7,10 +7,10 @@
  */
 int node_is_leaf(const binary_tree_t *node)
 {
-        if (node && !(node->left) && !(node->right))
-                return (1);
-        else
-                return (0);
+	if (node && !(node->left) && !(node->right))
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -20,10 +20,10 @@ int node_is_leaf(const binary_tree_t *node)
  */
 int parent_node_is_full(const binary_tree_t *node)
 {
-        if (node && node->left && node->right)
-                return (1);
-        else
-                return (0);
+	if (node && node->left && node->right)
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -34,17 +34,17 @@ int parent_node_is_full(const binary_tree_t *node)
  */
 int height(const binary_tree_t *tree)
 {
-        int height_left = 0, height_right = 0;
+	int height_left = 0, height_right = 0;
 
-        if (!tree)
-                return (-1);
-        height_left = height(tree->left);
-        height_right = height(tree->right);
+	if (!tree)
+		return (-1);
+	height_left = height(tree->left);
+	height_right = height(tree->right);
 
-        if (height_left > height_right)
-                return (height_left + 1);
-        else
-                return (height_right + 1);
+	if (height_left > height_right)
+		return (height_left + 1);
+	else
+		return (height_right + 1);
 }
 
 /**
@@ -55,18 +55,18 @@ int height(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-        if (tree && height(tree->left) == height(tree->right))
-        {
-                if (height(tree->left) == -1)
-                        return (1);
-                if (node_is_leaf(tree->left) &&
-                                node_is_leaf(tree->right))
-                        return (1);
-                if (parent_node_is_full(tree))
-                        return (binary_tree_is_perfect(tree->left) &&
-                                        binary_tree_is_perfect(tree->right));
-        }
-        return (0);
+	if (tree && height(tree->left) == height(tree->right))
+	{
+		if (height(tree->left) == -1)
+			return (1);
+		if (node_is_leaf(tree->left) &&
+				node_is_leaf(tree->right))
+			return (1);
+		if (parent_node_is_full(tree))
+			return (binary_tree_is_perfect(tree->left) &&
+					binary_tree_is_perfect(tree->right));
+	}
+	return (0);
 }
 
 /**
@@ -78,11 +78,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 void node_swap(heap_t **node_p, heap_t **node_c)
 {
 	int lr;
-	heap_t *node, *child, *child_node,
-	       *left_node, *right_node, *parent;
+	heap_t *node, *child, *child_node, *left_node, *right_node, *parent;
 
-	node = *node_p;
-	child = *node_c;
+	node = *node_p,	child = *node_c;
 	if (child->n > node->n)
 	{
 		if (child->left)
@@ -90,10 +88,7 @@ void node_swap(heap_t **node_p, heap_t **node_c)
 		if (child->right)
 			child->right->parent = node;
 		if (node->left == child)
-		{
-			child_node = node->right;
-			lr = 0;
-		}
+			child_node = node->right, lr = 0;
 		else
 			child_node = node->left, lr = 1;
 		left_node = child->left, right_node = child->right;
@@ -118,9 +113,8 @@ void node_swap(heap_t **node_p, heap_t **node_c)
 			else
 				node->parent->right = child;
 		}
-		parent = node->parent, child->parent = parent;
-		node->parent = child, node->left = left_node;
-		node->right = right_node, *node_p = child;
+		parent = node->parent, child->parent = parent, node->parent = child;
+		node->left = left_node,	node->right = right_node, *node_p = child;
 	}
 }
 

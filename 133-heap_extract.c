@@ -98,7 +98,7 @@ int heap_extract(heap_t **root)
 
 	if ((*root)->left)
 		(*root)->left->parent = node_l;
-	if((*root)->right)
+	if ((*root)->right)
 		(*root)->right->parent = node_l;
 	free(*root);
 	*root = node_l;
